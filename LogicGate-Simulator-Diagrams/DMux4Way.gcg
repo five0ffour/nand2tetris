@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CircuitGroup Version="1.2">
+  <Circuit Name="DMUX">
+    <Gates>
+      <Gate Type="UserInput" Name="IN" ID="1">
+        <Point X="223" Y="102" Angle="0" />
+      </Gate>
+      <Gate Type="UserInput" Name="SEL" ID="2">
+        <Point X="226" Y="183" Angle="0" />
+      </Gate>
+      <Gate Type="Not" Name="Not" ID="3">
+        <Point X="301" Y="143" Angle="0" />
+      </Gate>
+      <Gate Type="And" Name="And" ID="4" NumInputs="2">
+        <Point X="415" Y="109" Angle="0" />
+      </Gate>
+      <Gate Type="And" Name="And" ID="5" NumInputs="2">
+        <Point X="420" Y="175" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="A" ID="6">
+        <Point X="500" Y="108" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="B" ID="7">
+        <Point X="499" Y="174" Angle="0" />
+      </Gate>
+    </Gates>
+    <Wires>
+      <Wire>
+        <From ID="2" Port="0" />
+        <To ID="3" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="3" Port="0" />
+        <To ID="4" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="1" Port="0" />
+        <To ID="4" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="2" Port="0" />
+        <To ID="5" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="1" Port="0" />
+        <To ID="5" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="4" Port="0" />
+        <To ID="6" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="5" Port="0" />
+        <To ID="7" Port="0" />
+      </Wire>
+    </Wires>
+  </Circuit>
+  <Circuit Name="DMux4Way">
+    <Gates>
+      <Gate Type="Comment" Name="Comment" ID="1">
+        <Point X="177.12145748987854" Y="72.55221401348696" Angle="0" />
+        <Comment>DMUX4Way -  {a, b, c, d } = {in, 0, 0, 0, 0 } if SEL == 00,  {0, in, 0, 0, } if SEL == 01, ...</Comment>
+      </Gate>
+      <Gate Type="UserInput" Name="IN" ID="2">
+        <Point X="192" Y="181" Angle="0" />
+      </Gate>
+      <Gate Type="UserInput" Name="S0" ID="3">
+        <Point X="206.98065677013045" Y="282.81871345029231" Angle="0" />
+      </Gate>
+      <Gate Type="IC" Name="DMUX" ID="4">
+        <Point X="269" Y="198" Angle="0" />
+      </Gate>
+      <Gate Type="UserInput" Name="S1" ID="5">
+        <Point X="180.52991452991449" Y="248.28340080971662" Angle="0" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="6">
+        <Point X="184" Y="325" Angle="0" />
+        <Comment>SEL[2]</Comment>
+      </Gate>
+      <Gate Type="UserOutput" Name="A" ID="7">
+        <Point X="505" Y="187" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="B" ID="8">
+        <Point X="505" Y="226" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="C" ID="9">
+        <Point X="508" Y="267" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="D" ID="10">
+        <Point X="508" Y="313" Angle="0" />
+      </Gate>
+      <Gate Type="IC" Name="DMUX" ID="11">
+        <Point X="407" Y="206" Angle="0" />
+      </Gate>
+      <Gate Type="IC" Name="DMUX" ID="12">
+        <Point X="404" Y="288" Angle="0" />
+      </Gate>
+    </Gates>
+    <Wires>
+      <Wire>
+        <From ID="2" Port="0" />
+        <To ID="4" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="5" Port="0" />
+        <To ID="4" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="11" Port="0" />
+        <To ID="7" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="11" Port="1" />
+        <To ID="8" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="12" Port="0" />
+        <To ID="9" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="12" Port="1" />
+        <To ID="10" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="4" Port="0" />
+        <To ID="11" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="3" Port="0" />
+        <To ID="11" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="4" Port="1" />
+        <To ID="12" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="3" Port="0" />
+        <To ID="12" Port="1" />
+      </Wire>
+    </Wires>
+  </Circuit>
+  <Circuit>
+    <Gates>
+      <Gate Type="Comment" Name="Comment" ID="1">
+        <Point X="177.12145748987854" Y="72.55221401348696" Angle="0" />
+        <Comment>DMUX4Way -  {a, b, c, d } = {in, 0, 0, 0, 0 } if SEL == 00,  {0, in, 0, 0, } if SEL == 01, ...</Comment>
+      </Gate>
+      <Gate Type="UserInput" Name="IN" ID="2">
+        <Point X="192" Y="192" Angle="0" />
+      </Gate>
+      <Gate Type="UserInput" Name="S0" ID="3">
+        <Point X="192" Y="288" Angle="0" />
+      </Gate>
+      <Gate Type="IC" Name="DMUX" ID="4">
+        <Point X="288" Y="192" Angle="0" />
+      </Gate>
+      <Gate Type="UserInput" Name="S1" ID="5">
+        <Point X="192" Y="256" Angle="0" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="6">
+        <Point X="181" Y="333" Angle="0" />
+        <Comment>SEL[2]</Comment>
+      </Gate>
+      <Gate Type="UserOutput" Name="A" ID="7">
+        <Point X="544" Y="192" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="B" ID="8">
+        <Point X="544" Y="224" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="C" ID="9">
+        <Point X="544" Y="256" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="D" ID="10">
+        <Point X="544" Y="288" Angle="0" />
+      </Gate>
+      <Gate Type="IC" Name="DMUX" ID="11">
+        <Point X="416" Y="192" Angle="0" />
+      </Gate>
+      <Gate Type="IC" Name="DMUX" ID="12">
+        <Point X="416" Y="256" Angle="0" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="13">
+        <Point X="189" Y="144" Angle="0" />
+        <Comment>IN</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="14">
+        <Point X="531" Y="141" Angle="0" />
+        <Comment>OUT</Comment>
+      </Gate>
+    </Gates>
+    <Wires>
+      <Wire>
+        <From ID="2" Port="0" />
+        <To ID="4" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="5" Port="0" />
+        <To ID="4" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="11" Port="0" />
+        <To ID="7" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="11" Port="1" />
+        <To ID="8" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="12" Port="0" />
+        <To ID="9" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="12" Port="1" />
+        <To ID="10" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="4" Port="0" />
+        <To ID="11" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="3" Port="0" />
+        <To ID="11" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="4" Port="1" />
+        <To ID="12" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="3" Port="0" />
+        <To ID="12" Port="1" />
+      </Wire>
+    </Wires>
+  </Circuit>
+</CircuitGroup>
