@@ -3,6 +3,11 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/01/Xor.hdl
 
+// Solution 
+// Author:  Michael Galarneau
+// Date: November 1, 2019
+// 
+
 /**
  * Exclusive-or gate:
  * out = not (a == b)
@@ -13,5 +18,7 @@ CHIP Xor {
     OUT out;
 
     PARTS:
-    // Put your code here:
+    Or(a=a, b=b, out=orab);
+    Nand(a=a, b=b, out=nandab);
+    And(a=orab, b=nandab, out=out);
 }
