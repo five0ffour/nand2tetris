@@ -601,7 +601,7 @@
         <Point X="160" Y="96" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="B0" ID="3">
-        <Point X="160" Y="640" Angle="0" />
+        <Point X="160" Y="704" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="Out0" ID="4">
         <Point X="2240" Y="96" Angle="0" />
@@ -613,49 +613,49 @@
         <Point X="160" Y="128" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="B1" ID="7">
-        <Point X="160" Y="672" Angle="0" />
-      </Gate>
-      <Gate Type="UserInput" Name="B2" ID="8">
-        <Point X="160" Y="704" Angle="0" />
-      </Gate>
-      <Gate Type="UserInput" Name="B3" ID="9">
         <Point X="160" Y="736" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B4" ID="10">
+      <Gate Type="UserInput" Name="B2" ID="8">
         <Point X="160" Y="768" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B5" ID="11">
+      <Gate Type="UserInput" Name="B3" ID="9">
         <Point X="160" Y="800" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B6" ID="12">
+      <Gate Type="UserInput" Name="B4" ID="10">
         <Point X="160" Y="832" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B7" ID="13">
+      <Gate Type="UserInput" Name="B5" ID="11">
         <Point X="160" Y="864" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B8" ID="14">
+      <Gate Type="UserInput" Name="B6" ID="12">
         <Point X="160" Y="896" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B9" ID="15">
+      <Gate Type="UserInput" Name="B7" ID="13">
         <Point X="160" Y="928" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B10" ID="16">
+      <Gate Type="UserInput" Name="B8" ID="14">
         <Point X="160" Y="960" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B11" ID="17">
+      <Gate Type="UserInput" Name="B9" ID="15">
         <Point X="160" Y="992" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B12" ID="18">
+      <Gate Type="UserInput" Name="B10" ID="16">
         <Point X="160" Y="1024" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B13" ID="19">
+      <Gate Type="UserInput" Name="B11" ID="17">
         <Point X="160" Y="1056" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B14" ID="20">
+      <Gate Type="UserInput" Name="B12" ID="18">
         <Point X="160" Y="1088" Angle="0" />
       </Gate>
-      <Gate Type="UserInput" Name="B15" ID="21">
+      <Gate Type="UserInput" Name="B13" ID="19">
         <Point X="160" Y="1120" Angle="0" />
+      </Gate>
+      <Gate Type="UserInput" Name="B14" ID="20">
+        <Point X="160" Y="1152" Angle="0" />
+      </Gate>
+      <Gate Type="UserInput" Name="B15" ID="21">
+        <Point X="160" Y="1184" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="A2" ID="22">
         <Point X="160" Y="160" Angle="0" />
@@ -785,6 +785,22 @@
       </Gate>
       <Gate Type="IC" Name="FullAdder" ID="64">
         <Point X="2125" Y="584" Angle="0" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="65">
+        <Point X="160" Y="32" Angle="0" />
+        <Comment>A[16]</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="66">
+        <Point X="151" Y="653" Angle="0" />
+        <Comment>B[16]</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="67">
+        <Point X="2221" Y="51" Angle="0" />
+        <Comment>Out[16]</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="68">
+        <Point X="1312" Y="32" Angle="0" />
+        <Comment>Add16 -   Out[16] = A[16] + B[16] (final carry is ignored) </Comment>
       </Gate>
     </Gates>
     <Wires>
