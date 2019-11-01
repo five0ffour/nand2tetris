@@ -3,6 +3,11 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/01/Or.hdl
 
+// Solution 
+// Author:  Michael Galarneau
+// Date: November 1, 2019
+// 
+
  /**
  * Or gate:
  * out = 1 if (a == 1 or b == 1)
@@ -14,5 +19,7 @@ CHIP Or {
     OUT out;
 
     PARTS:
-    // Put your code here:
+    Not(in=a, out=nota);
+    Not(in=b, out=notb);
+    Nand(a=nota, b=notb, out=out);
 }
