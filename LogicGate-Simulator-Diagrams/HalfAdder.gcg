@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CircuitGroup Version="1.2">
+  <Circuit Name="HalfAdder">
+    <Gates>
+      <Gate Type="UserInput" Name="a" ID="1">
+        <Point X="256" Y="192" Angle="0" />
+      </Gate>
+      <Gate Type="UserInput" Name="B" ID="2">
+        <Point X="256" Y="256" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="sum" ID="3">
+        <Point X="512" Y="192" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="carry" ID="4">
+        <Point X="512" Y="256" Angle="0" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="5">
+        <Point X="565" Y="191" Angle="0" />
+        <Comment>sum</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="6">
+        <Point X="562" Y="257" Angle="0" />
+        <Comment>carry</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="7">
+        <Point X="264" Y="54" Angle="0" />
+        <Comment>Half Adder - SUM ( A + B ) w/carry</Comment>
+      </Gate>
+      <Gate Type="And" Name="And" ID="8" NumInputs="2">
+        <Point X="416" Y="256" Angle="0" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="9">
+        <Point X="192" Y="224" Angle="0" />
+        <Comment>IN</Comment>
+      </Gate>
+      <Gate Type="Xor" Name="Xor" ID="10">
+        <Point X="416" Y="192" Angle="0" />
+      </Gate>
+    </Gates>
+    <Wires>
+      <Wire>
+        <From ID="10" Port="0" />
+        <To ID="3" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="8" Port="0" />
+        <To ID="4" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="2" Port="0" />
+        <To ID="8" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="1" Port="0" />
+        <To ID="8" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="2" Port="0" />
+        <To ID="10" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="1" Port="0" />
+        <To ID="10" Port="1" />
+      </Wire>
+    </Wires>
+  </Circuit>
+  <Circuit>
+    <Gates>
+      <Gate Type="UserInput" Name="a" ID="1">
+        <Point X="256" Y="192" Angle="0" />
+      </Gate>
+      <Gate Type="UserInput" Name="B" ID="2">
+        <Point X="256" Y="256" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="sum" ID="3">
+        <Point X="512" Y="192" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="carry" ID="4">
+        <Point X="512" Y="256" Angle="0" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="5">
+        <Point X="565" Y="191" Angle="0" />
+        <Comment>sum</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="6">
+        <Point X="562" Y="257" Angle="0" />
+        <Comment>carry</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="7">
+        <Point X="264" Y="54" Angle="0" />
+        <Comment>Half Adder - SUM ( A + B ) w/carry</Comment>
+      </Gate>
+      <Gate Type="And" Name="And" ID="8" NumInputs="2">
+        <Point X="416" Y="256" Angle="0" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="9">
+        <Point X="192" Y="224" Angle="0" />
+        <Comment>IN</Comment>
+      </Gate>
+      <Gate Type="Xor" Name="Xor" ID="10">
+        <Point X="416" Y="192" Angle="0" />
+      </Gate>
+    </Gates>
+    <Wires>
+      <Wire>
+        <From ID="10" Port="0" />
+        <To ID="3" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="8" Port="0" />
+        <To ID="4" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="2" Port="0" />
+        <To ID="8" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="1" Port="0" />
+        <To ID="8" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="2" Port="0" />
+        <To ID="10" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="1" Port="0" />
+        <To ID="10" Port="1" />
+      </Wire>
+    </Wires>
+  </Circuit>
+</CircuitGroup>
