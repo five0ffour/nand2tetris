@@ -61,22 +61,22 @@
         <Point X="192" Y="96" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="SEL" ID="2">
-        <Point X="192" Y="160" Angle="0" />
+        <Point X="197" Y="238" Angle="0" />
       </Gate>
       <Gate Type="Not" Name="Not" ID="3">
-        <Point X="320" Y="128" Angle="0" />
+        <Point X="378" Y="150" Angle="0" />
       </Gate>
       <Gate Type="And" Name="And" ID="4" NumInputs="2">
-        <Point X="416" Y="96" Angle="0" />
+        <Point X="471" Y="104" Angle="0" />
       </Gate>
       <Gate Type="And" Name="And" ID="5" NumInputs="2">
-        <Point X="416" Y="160" Angle="0" />
+        <Point X="416" Y="229" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="A" ID="6">
-        <Point X="512" Y="96" Angle="0" />
+        <Point X="556" Y="103" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="B" ID="7">
-        <Point X="512" Y="160" Angle="0" />
+        <Point X="558" Y="229" Angle="0" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="8">
         <Point X="352" Y="32" Angle="0" />
