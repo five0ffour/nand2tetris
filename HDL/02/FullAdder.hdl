@@ -3,6 +3,10 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/02/FullAdder.hdl
 
+// Solution
+// Author:  Michael Galarneau
+// Date: November 1, 2019
+
 /**
  * Computes the sum of three bits.
  */
