@@ -3,6 +3,10 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/02/ALU.hdl
 
+// Solution
+// Author:  Michael Galarneau
+// Date:  November 2, 2019
+
 /**
  * The ALU (Arithmetic Logic Unit).
  * Computes one of the following functions:
@@ -13,6 +17,18 @@
  * if the ALU output == 0, zr is set to 1; otherwise zr is set to 0;
  * if the ALU output < 0, ng is set to 1; otherwise ng is set to 0.
  */
+
+//  zx |  nx  |  zy  |  ny  |  f  |  no  ||  out=
+// ----|------|------|------|-----|------||-------
+//  1  |   0  |   1  |   0  |  1  |   0  ||   0
+//  1  |   1  |   1  |   1  |  1  |   1  ||   1
+//  1  |   1  |   1  |   0  |  1  |   0  ||  -1
+//  0  |   0  |   1  |   1  |  0  |   0  ||   x
+//  1  |   1  |   0  |   0  |  0  |   0  ||   y
+//  0  |   0  |   1  |   1  |  0  |   1  ||  !x
+//  1  |   1  |   0  |   0  |  0  |   1  ||  !y
+//  0  |   0  |   1  |   1  |  1  |   1  ||  -x
+//  1  |   1  |   0  |   0  |  1  |   1  ||  -y
 
 // Implementation: the ALU logic manipulates the x and y inputs
 // and operates on the resulting values, as follows:
@@ -42,5 +58,24 @@ CHIP ALU {
         ng; // 1 if (out < 0),  0 otherwise
 
     PARTS:
-   // Put you code here:
+
+    // zx : x = 0  zero the x input
+    Mux16(a=x, b[0..15]=false, sel=zx, out=zx16);
+
+    // nx : x = !x bitwise not
+    Not16(in=zx16, out=nx16);
+
+    // Assign x --  nzx <== not/zeroed x  
+    Mux16(a=zx16, b=nx16, sel=nx, out=nzx);
+
+    // zy : y = 0  zero the y input
+    Mux16(a=y, b[0..15]=false, sel=zy, out=zy16);
+
+    // ny : y = !y bitwise not
+    Not16(in=zy16, out=ny16);
+
+    // Assign y -- nzy <== not/zeroed y
+    Mux16(a=zy16, b=ny16, sel=ny, out=nzy);
+
+    
 }
