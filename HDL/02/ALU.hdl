@@ -29,6 +29,15 @@
 //  1  |   1  |   0  |   0  |  0  |   1  ||  !y
 //  0  |   0  |   1  |   1  |  1  |   1  ||  -x
 //  1  |   1  |   0  |   0  |  1  |   1  ||  -y
+//  0  |   1  |   1  |   1  |  1  |   1  ||  x+1
+//  1  |   1  |   0  |   1  |  1  |   1  ||  y+1
+//  0  |   0  |   1  |   1  |  1  |   0  ||  x-1
+//  1  |   1  |   0  |   0  |  1  |   0  ||  y-1
+//  0  |   0  |   0  |   0  |  1  |   0  ||  x+y
+//  0  |   1  |   0  |   0  |  1  |   1  ||  x-y
+//  0  |   0  |   0  |   1  |  1  |   1  ||  y-x
+//  0  |   0  |   0  |   0  |  0  |   0  ||  x&y
+//  0  |   1  |   0  |   1  |  0  |   1  ||  x|y
 
 // Implementation: the ALU logic manipulates the x and y inputs
 // and operates on the resulting values, as follows:
@@ -59,23 +68,43 @@ CHIP ALU {
 
     PARTS:
 
-    // zx : x = 0  zero the x input
+    // if (zx == 1) set x = 0        // 16-bit constant
     Mux16(a=x, b[0..15]=false, sel=zx, out=zx16);
 
-    // nx : x = !x bitwise not
+    // if (nx == 1) set x = !x       // bitwise not
     Not16(in=zx16, out=nx16);
 
-    // Assign x --  nzx <== not/zeroed x  
+    // Capture x  
     Mux16(a=zx16, b=nx16, sel=nx, out=nzx);
 
-    // zy : y = 0  zero the y input
+    // if (zy == 1) set y = 0        // 16-bit constant
     Mux16(a=y, b[0..15]=false, sel=zy, out=zy16);
 
-    // ny : y = !y bitwise not
+    // if (ny == 1) set y = !y       // bitwise not
     Not16(in=zy16, out=ny16);
 
-    // Assign y -- nzy <== not/zeroed y
+    // Capture y  
     Mux16(a=zy16, b=ny16, sel=ny, out=nzy);
 
+    // if (f == 1)  set out = x + y  // integer 2's complement addition
+    Add16(a=nzx, b=nzy, out=xplusy);
+
+    // if (f == 0)  set out = x & y  // bitwise and
+    And16(a=nzx, b=nzy, out=xandy);
+    Mux16(a=xandy, b=xplusy, sel=f, out=foo);
+
+    // if (no == 1) set out = !out   // bitwise not
+    Not16(in=foo, out=nout);
+    Mux16(a=foo, b=nout, sel=no, out=foo2);
+
+    // if (out == 0) set zr = 1
+    Or16Way(in=foo2, out=nzr);
+    Not(in=nzr, out=zr);
     
+    // if (out < 0) set ng = 1
+    And16(a[0..15]=true, b=foo2, out[15]=ng, out[0..14]=drop);
+
+    // Set out
+    Mux16(a=foo2, b=false, sel=false, out=out);
+
 }
