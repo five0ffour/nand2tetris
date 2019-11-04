@@ -945,7 +945,7 @@
         <Point X="255" Y="872" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="y2" ID="20">
-        <Point X="255" Y="904" Angle="0" />
+        <Point X="255" Y="903" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="y3" ID="21">
         <Point X="255" Y="936" Angle="0" />
@@ -957,13 +957,13 @@
         <Point X="255" Y="1000" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="y6" ID="24">
-        <Point X="255" Y="1032" Angle="0" />
+        <Point X="256" Y="1031" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="y7" ID="25">
-        <Point X="255" Y="1064" Angle="0" />
+        <Point X="256" Y="1063" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="y8" ID="26">
-        <Point X="255" Y="1096" Angle="0" />
+        <Point X="256" Y="1095" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="y9" ID="27">
         <Point X="256" Y="1127" Angle="0" />
@@ -1006,7 +1006,7 @@
       <Gate Type="UserInput" Name="NX" ID="39">
         <Point X="1504" Y="64" Angle="90" />
       </Gate>
-      <Gate Type="NumericOutput" Name="Numeric Output" ID="40" Bits="16" SelRep="10" Value="0">
+      <Gate Type="NumericOutput" Name="Numeric Output" ID="40" Bits="16" SelRep="2" Value="0000000000000000">
         <Point X="1232" Y="654" Angle="0" />
       </Gate>
       <Gate Type="IC" Name="MUX16" ID="41">
