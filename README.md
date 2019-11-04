@@ -25,7 +25,7 @@ My hope is that these files can be used to provide just another way of understan
 | In addition, the ALU computes two 1-bit outputs:   
 | if the ALU output == 0, zr is set to 1; otherwise zr is set to 0;   
 | if the ALU output < 0, ng is set to 1; otherwise ng is set to 0.   
-|     
+    
   
 |  zx  |  nx   |  zy   |  ny   |  f   |  no   |  out=  |  
 | ---- | ----- | ----- | ----- | ---- | ----- | -----: |  
@@ -48,7 +48,7 @@ My hope is that these files can be used to provide just another way of understan
 |  0   |   0   |   0   |   0   |  0   |   0   |  x&y   |  
 |  0   |   1   |   0   |   1   |  0   |   1   |  x|y   |  
   
-![](documentation/SAP-1.png)
+![schematic](documentation/SAP-1.png)
 
 Enjoy!  
 Mike  
