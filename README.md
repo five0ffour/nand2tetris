@@ -17,7 +17,7 @@ Logic Gate Simlulator is an open source project providing student engineers an o
 My hope is that these files can be used to provide just another way of understanding the fascintating world of digital computers.  As with the original authors intent, nothing beats actually implementing them to really undertand.  I too encourage any student to try their hand at designing these gates using their HDL and use my source or PDFs only as a double-check of their final work.  
 
 Sample:
-![](documentation/Mux4Way16.png)
+![](documentation/ALU.png)
 
 Enjoy!  
 Mike  
