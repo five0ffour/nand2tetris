@@ -49,6 +49,42 @@ My hope is that these files can be used to provide just another way of understan
 |  0   |   1   |   0   |   1   |  0   |   1   |  x|y   |  
   
 ![schematic](documentation/SAP-1.png)
+  
+## Getting Started  
+To get started, copy the source files to a clean directory  
+Install nand2tetris per the instructions on their website (links below) 
+Install Logic Gate Simulator per the instructions on their website (links below)  
+Open any .hdl in the nand2tetris Hardware Simulator tool  
+Open any .gcg file in the Logic Gate Simulator tool
+Open 02/SAP-1.gcg in the LGS tool to simulate the ALU.  Use the table above to drive the funcitonality   
+Each component has a corresponding image file in the documentation directory    
 
-Enjoy!  
-Mike  
+## Prerequisites
+Windows compatible desktop  
+Nand to Tetris Hardware Simulator  
+Logic Gate Simulator Tool  
+    
+## Developer notes
+LogicGate-Simulator-Diagrams/SAP-1.gcg:  main entry point for an interactive view of the ALU for the Logic Gate Simulator.
+HDL/02/ALU.hdl:  main entry point for the functioning ALU using the nand2tetris Hardware simulator  
+Development: developed using Visual Studio Code, but any text editor would work, including notepad.  
+GitHub:  ubiquitous code version control management   
+  
+## Future Enhancements
+Current solution only uses combinatorial gate,  future enhancements include adding sequence gates (counters, clocks, etc)
+  
+## Built With
+Logic Gate Simulator 1.4.0 - Logic Gate Simulator (https://www.kolls.net/gatesim/)   
+Hardware Simulator 2.6.0 -nand2tetris.org software suite  (https://www.nand2tetris.org/software)
+   
+## Author
+Michael Galarneau - Five0ffour  
+November, 2019  
+  
+## Acknowledgements
+Credits to "From Nand to Tetris" site.  Follow their formula and walk through the exercises to get the most value.   
+Companion Book:  [Elements of Computing Systems](https://www.amazon.com/Elements-Computing-Systems-Building-Principles/dp/0262640686/ref=sr_1_1?crid=1B8YVVXDAAMPL&keywords=elements+of+computing+systems&qid=1572968833&sprefix=Elemnts+of+Computing+%2Caps%2C144&sr=8-1)
+Inspiration for this project: [Teach Yourself Computer Science](https://teachyourselfcs.com/#architecture)
+  
+## Deployed Site
+None - desktop client applications
