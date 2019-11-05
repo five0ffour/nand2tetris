@@ -2280,7 +2280,7 @@
       <Gate Type="UserInput" Name="NX" ID="39">
         <Point X="1396.7026316330093" Y="99.1387719045956" Angle="90" />
       </Gate>
-      <Gate Type="NumericOutput" Name="Numeric Output" ID="40" Bits="16" SelRep="2" Value="0000000000000000">
+      <Gate Type="NumericOutput" Name="Numeric Output" ID="40" Bits="16" SelRep="11" Value="0">
         <Point X="1254" Y="655" Angle="0" />
       </Gate>
       <Gate Type="IC" Name="MUX16" ID="41">
@@ -2290,7 +2290,7 @@
         <Point X="788" Y="797" Angle="90" />
       </Gate>
       <Gate Type="IC" Name="NOT16" ID="43">
-        <Point X="955" Y="1214" Angle="0" />
+        <Point X="955" Y="1271.46" Angle="0" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="44">
         <Point X="635" Y="806" Angle="0" />
@@ -2306,7 +2306,7 @@
       <Gate Type="UserInput" Name="NY" ID="47">
         <Point X="1407" Y="800" Angle="90" />
       </Gate>
-      <Gate Type="NumericOutput" Name="Numeric Output" ID="48" Bits="16" SelRep="10" Value="0">
+      <Gate Type="NumericOutput" Name="Numeric Output" ID="48" Bits="16" SelRep="11" Value="0">
         <Point X="1170" Y="1384" Angle="0" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="49">
@@ -2332,8 +2332,8 @@
       <Gate Type="IC" Name="Add16" ID="54">
         <Point X="1766" Y="109.09999999999945" Angle="0" />
       </Gate>
-      <Gate Type="NumericOutput" Name="Numeric Output" ID="55" Bits="16" SelRep="11" Value="0">
-        <Point X="2087.8772873776261" Y="323.19049633814495" Angle="0" />
+      <Gate Type="NumericOutput" Name="Numeric Output" ID="55" Bits="16" SelRep="2" Value="0000000000000000">
+        <Point X="2117.9840202619439" Y="323.19049633814495" Angle="0" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="56">
         <Point X="2209.8516958727951" Y="371.5888890030198" Angle="0" />
@@ -2343,14 +2343,14 @@
         <Point X="1679" Y="969" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="F" ID="58">
-        <Point X="2509.6945811163391" Y="178.17172381206726" Angle="90" />
+        <Point X="2512.1445811163394" Y="178.17172381206726" Angle="90" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="59">
         <Point X="2405.0709369928304" Y="131.79423547055075" Angle="0" />
         <Comment>F = 0 for "and" and 1 for "addition"</Comment>
       </Gate>
-      <Gate Type="NumericOutput" Name="Numeric Output" ID="60" Bits="16" SelRep="10" Value="0">
-        <Point X="2095.6" Y="1213.7" Angle="0" />
+      <Gate Type="NumericOutput" Name="Numeric Output" ID="60" Bits="16" SelRep="11" Value="0">
+        <Point X="2095.6" Y="1212.7" Angle="0" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="61">
         <Point X="2204.7" Y="1268.45" Angle="0" />
@@ -2457,6 +2457,20 @@
       <Gate Type="NumericInput" Name="Numeric Input" ID="93" Bits="2" SelRep="2" Value="11">
         <Point X="3604" Y="557" Angle="0" />
       </Gate>
+      <Gate Type="NumericInput" Name="Numeric Input" ID="94" Bits="2" SelRep="2" Value="00">
+        <Point X="498" Y="556" Angle="180" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="95">
+        <Point X="564" Y="557" Angle="0" />
+        <Comment> b[0..15] = false (always)</Comment>
+      </Gate>
+      <Gate Type="NumericInput" Name="Numeric Input" ID="96" Bits="2" SelRep="2" Value="00">
+        <Point X="498" Y="1291" Angle="180" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="97">
+        <Point X="565" Y="1291" Angle="0" />
+        <Comment> b[0..15] = false (always)</Comment>
+      </Gate>
     </Gates>
     <Wires>
       <Wire>
@@ -2522,6 +2536,66 @@
       <Wire>
         <From ID="17" Port="0" />
         <To ID="1" Port="15" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="0" />
+        <To ID="1" Port="16" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="0" />
+        <To ID="1" Port="17" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="0" />
+        <To ID="1" Port="18" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="0" />
+        <To ID="1" Port="19" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="1" />
+        <To ID="1" Port="20" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="1" />
+        <To ID="1" Port="21" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="1" />
+        <To ID="1" Port="22" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="1" />
+        <To ID="1" Port="23" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="1" />
+        <To ID="1" Port="24" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="0" />
+        <To ID="1" Port="25" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="1" />
+        <To ID="1" Port="26" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="0" />
+        <To ID="1" Port="28" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="0" />
+        <To ID="1" Port="29" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="1" />
+        <To ID="1" Port="30" />
+      </Wire>
+      <Wire>
+        <From ID="94" Port="1" />
+        <To ID="1" Port="31" />
       </Wire>
       <Wire>
         <From ID="34" Port="0" />
@@ -2850,6 +2924,66 @@
       <Wire>
         <From ID="33" Port="0" />
         <To ID="41" Port="15" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="0" />
+        <To ID="41" Port="16" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="0" />
+        <To ID="41" Port="18" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="0" />
+        <To ID="41" Port="19" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="1" />
+        <To ID="41" Port="20" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="1" />
+        <To ID="41" Port="21" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="1" />
+        <To ID="41" Port="22" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="1" />
+        <To ID="41" Port="23" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="1" />
+        <To ID="41" Port="24" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="0" />
+        <To ID="41" Port="25" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="1" />
+        <To ID="41" Port="26" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="0" />
+        <To ID="41" Port="27" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="0" />
+        <To ID="41" Port="28" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="0" />
+        <To ID="41" Port="29" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="1" />
+        <To ID="41" Port="30" />
+      </Wire>
+      <Wire>
+        <From ID="96" Port="1" />
+        <To ID="41" Port="31" />
       </Wire>
       <Wire>
         <From ID="42" Port="0" />
