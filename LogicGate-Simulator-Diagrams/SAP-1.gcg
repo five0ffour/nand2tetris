@@ -4160,10 +4160,10 @@
   <Circuit>
     <Gates>
       <Gate Type="NumericInput" Name="Numeric Input" ID="1" Bits="16" SelRep="10" Value="55">
-        <Point X="180" Y="184" Angle="0" />
+        <Point X="554" Y="185" Angle="0" />
       </Gate>
-      <Gate Type="NumericInput" Name="Numeric Input" ID="2" Bits="16" SelRep="10" Value="89">
-        <Point X="530" Y="185" Angle="0" />
+      <Gate Type="NumericInput" Name="Numeric Input" ID="2" Bits="16" SelRep="11" Value="89">
+        <Point X="219" Y="183" Angle="0" />
       </Gate>
       <Gate Type="NumericOutput" Name="Numeric Output" ID="3" Bits="16" SelRep="10" Value="0">
         <Point X="398" Y="636" Angle="0" />
@@ -4192,24 +4192,24 @@
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="11">
         <Point X="304" Y="134" Angle="0" />
-        <Comment>X Register - 16 bit</Comment>
+        <Comment>Y Register - 16 bit</Comment>
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="12">
         <Point X="611" Y="138" Angle="0" />
-        <Comment>Y Register - 16 bit</Comment>
+        <Comment>X Register - 16 bit</Comment>
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="13">
-        <Point X="814" Y="131" Angle="0" />
+        <Point X="871" Y="136" Angle="0" />
         <Comment>Control Bits: ZX (ZeroX), NZ (NegateX), ZY(ZeroY), NY(Negate Y), F(And or Add), No (Not Output)</Comment>
       </Gate>
       <Gate Type="UserOutput" Name="ZR" ID="14">
-        <Point X="768" Y="640" Angle="90" />
+        <Point X="231" Y="636" Angle="90" />
       </Gate>
       <Gate Type="UserOutput" Name="NG" ID="15">
-        <Point X="800" Y="640" Angle="90" />
+        <Point X="264" Y="637" Angle="90" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="16">
-        <Point X="693" Y="688" Angle="0" />
+        <Point X="138" Y="689" Angle="0" />
         <Comment>Output Control Bits: ZR, NG (Zero, Negative)</Comment>
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="17">
@@ -4218,6 +4218,14 @@
       </Gate>
       <Gate Type="IC" Name="ALU" ID="18">
         <Point X="534" Y="104" Angle="90" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="19">
+        <Point X="948" Y="257" Angle="0" />
+        <Comment>X</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="20">
+        <Point X="1016" Y="256" Angle="0" />
+        <Comment>Y</Comment>
       </Gate>
     </Gates>
     <Wires>
@@ -4440,6 +4448,10 @@
       <Wire>
         <From ID="8" Port="0" />
         <To ID="18" Port="36" />
+      </Wire>
+      <Wire>
+        <From ID="9" Port="0" />
+        <To ID="18" Port="37" />
       </Wire>
     </Wires>
   </Circuit>
