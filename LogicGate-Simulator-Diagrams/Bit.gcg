@@ -293,7 +293,7 @@
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="7">
         <Point X="192" Y="416" Angle="0" />
-        <Comment>Load Selector</Comment>
+        <Comment>Load Selector - Data can only be loaded on High</Comment>
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="8">
         <Point X="429" Y="208" Angle="180" />
