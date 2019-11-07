@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CircuitGroup Version="1.2">
+  <Circuit Name="DFF">
+    <Gates>
+      <Gate Type="Clock" Name="Clock" ID="1" Milliseconds="1000">
+        <Point X="234" Y="375" Angle="0" />
+      </Gate>
+      <Gate Type="Nand" Name="Nand" ID="2" NumInputs="2">
+        <Point X="453" Y="192" Angle="0" />
+      </Gate>
+      <Gate Type="Nand" Name="Nand" ID="3" NumInputs="2">
+        <Point X="455" Y="342" Angle="0" />
+      </Gate>
+      <Gate Type="UserInput" Name="In" ID="4">
+        <Point X="229" Y="183" Angle="0" />
+      </Gate>
+      <Gate Type="Buffer" Name="Buffer" ID="5">
+        <Point X="309" Y="365" Angle="0" />
+      </Gate>
+      <Gate Type="Not" Name="Not" ID="6">
+        <Point X="330" Y="250" Angle="90" />
+      </Gate>
+      <Gate Type="Buffer" Name="Buffer" ID="7">
+        <Point X="306" Y="199" Angle="0" />
+      </Gate>
+      <Gate Type="Buffer" Name="Buffer" ID="8">
+        <Point X="671" Y="261" Angle="0" />
+      </Gate>
+      <Gate Type="Nand" Name="Nand" ID="9" NumInputs="2">
+        <Point X="562" Y="334" Angle="0" />
+      </Gate>
+      <Gate Type="Nand" Name="Nand" ID="10" NumInputs="2">
+        <Point X="558" Y="200" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="Q" ID="11">
+        <Point X="785" Y="245" Angle="0" />
+      </Gate>
+      <Gate Type="Buffer" Name="Buffer" ID="12">
+        <Point X="673" Y="309" Angle="0" />
+      </Gate>
+      <Gate Type="UserOutput" Name="notQ" ID="13">
+        <Point X="784" Y="292" Angle="0" />
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="14">
+        <Point X="786" Y="197" Angle="0" />
+        <Comment>Q</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="15">
+        <Point X="776" Y="337" Angle="0" />
+        <Comment>notQ</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="16">
+        <Point X="224" Y="128" Angle="0" />
+        <Comment>In (Data)</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="17">
+        <Point X="391" Y="68" Angle="0" />
+        <Comment>DFF - Data Flip Flop - Q only set/reset in sync with Clock on cycle</Comment>
+      </Gate>
+    </Gates>
+    <Wires>
+      <Wire>
+        <From ID="5" Port="0" />
+        <To ID="2" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="7" Port="0" />
+        <To ID="2" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="5" Port="0" />
+        <To ID="3" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="6" Port="0" />
+        <To ID="3" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="1" Port="0" />
+        <To ID="5" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="7" Port="0" />
+        <To ID="6" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="4" Port="0" />
+        <To ID="7" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="10" Port="0" />
+        <To ID="8" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="3" Port="0" />
+        <To ID="9" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="8" Port="0" />
+        <To ID="9" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="12" Port="0" />
+        <To ID="10" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="2" Port="0" />
+        <To ID="10" Port="1" />
+      </Wire>
+      <Wire>
+        <From ID="8" Port="0" />
+        <To ID="11" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="9" Port="0" />
+        <To ID="12" Port="0" />
+      </Wire>
+      <Wire>
+        <From ID="12" Port="0" />
+        <To ID="13" Port="0" />
+      </Wire>
+    </Wires>
+  </Circuit>
+</CircuitGroup>
