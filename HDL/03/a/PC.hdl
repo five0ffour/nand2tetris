@@ -3,6 +3,10 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/03/a/PC.hdl
 
+// Solution:
+//  Author:  Michael Galarneau
+//  Date:  November 7 ,2019
+
 /**
  * A 16-bit counter with load and reset control bits.
  * if      (reset[t] == 1) out[t+1] = 0
@@ -16,5 +20,17 @@ CHIP PC {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
+
+    // Grab the t register value, increment and hold on an internal pin
+	Inc16(in=ot,out=i);
+
+    // From least to highest precedence starting with the register's latched t value 
+    // calculate and carry results through this logic
+    Mux16(a=ot, b=i, sel=inc, out=oi);                // inc - may be replaced by...
+    Mux16(a=oi, b=in, sel=load, out=ol);              // load - may be replaced by...
+    Mux16(a=ol, b[0..15]=false, sel=reset, out=oz);   // reset
+
+    // Save the result in the register (tied back to the inc function)
+    Register(in=oz, load=true, out=ot, out=out);
+
 }
