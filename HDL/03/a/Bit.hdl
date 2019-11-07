@@ -3,6 +3,10 @@
 // by Nisan and Schocken, MIT Press.
 // File name: projects/03/a/Bit.hdl
 
+// Solution:
+//  Author:  Michael Galarneau
+//  Date:  November, 6, 2019
+
 /**
  * 1-bit register:
  * If load[t] == 1 then out[t+1] = in[t]
@@ -14,5 +18,11 @@ CHIP Bit {
     OUT out;
 
     PARTS:
-    // Put your code here:
+    // Note: dffout is clocked based
+    // load selects input mode (1) or output mode (0)
+    Mux(a=dout, b=in, sel=load, out=mout);
+
+    // Note:  DFF is a builtin sequential chip (clocked based)
+    // dout is the internal feedback pin
+    DFF(in=mout, out=out, out=dout);
 }
