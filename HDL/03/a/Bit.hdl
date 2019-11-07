@@ -18,7 +18,7 @@ CHIP Bit {
     OUT out;
 
     PARTS:
-    // Note: dffout is clocked based
+    // Note: dout is a clocked based feedback pin (see below)
     // load selects input mode (1) or output mode (0)
     Mux(a=dout, b=in, sel=load, out=mout);
 
