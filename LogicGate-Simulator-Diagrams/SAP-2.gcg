@@ -1008,7 +1008,7 @@
   </Circuit>
   <Circuit Name="DFF">
     <Gates>
-      <Gate Type="Clock" Name="Clock" ID="1" Milliseconds="1000">
+      <Gate Type="Clock" Name="Clock" ID="1" Milliseconds="3000">
         <Point X="234" Y="375" Angle="0" />
       </Gate>
       <Gate Type="Nand" Name="Nand" ID="2" NumInputs="2">
