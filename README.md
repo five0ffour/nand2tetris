@@ -16,7 +16,8 @@ Logic Gate Simlulator is an open source project providing student engineers an o
 
 My hope is that these files can be used to provide just another way of understanding the fascintating world of digital computers. As with the original authors intent, nothing beats actually implementing them to really undertand. I too encourage any student to try their hand at designing these gates using their HDL and use my source or PDFs only as a double-check of their final work.  
 
-| ALU.hdl/SAP-1.gcg: The ALU (Arithmetic Logic Unit) (from nand2tetris.org) - Ruleset
+## The ALU (Arithmetic Logic Unit) (design from nand2tetris.org) 
+source files;  ALU.hdl / SAP-1.gcg:  
 | --- |      
 | Computes one of the following functions:  
 | x+y, x-y, y-x, 0, 1, -1, x, y, -x, -y, !x, !y,  
@@ -48,8 +49,12 @@ My hope is that these files can be used to provide just another way of understan
 |  0   |   0   |   0   |   0   |  0   |   0   |  x&y   |  
 |  0   |   1   |   0   |   1   |  0   |   1   |  x|y   |  
   
+## Example - the arithmetic logic unit using the ALU.gcg logic gate   
 ![schematic](documentation/SAP-1.png)
-  
+
+## Another example - the program counter using the PC.gcg logic gate  
+![schematic](documentation/SAP-2.png)
+
 Enjoy!    
 Mike  
   
@@ -68,9 +73,16 @@ Nand to Tetris Hardware Simulator
 Logic Gate Simulator Tool  
     
 ## Developer notes
-LogicGate-Simulator-Diagrams/SAP-1.gcg: main entry point for an interactive view of the ALU for the Logic Gate Simulator.
+LogicGate-Simulator-Diagrams/SAP-1.gcg: main entry point for an interactive view of the ALU for the Logic Gate Simulator  
 HDL/02/ALU.hdl: main entry point for the functioning ALU using the nand2tetris Hardware simulator  
-Development: developed using Visual Studio Code, but any text editor would work, including notepad.  
+  
+LogicGate-Simulator-Diagrams/SAP-2.gcg: main entry point for a view of a program counter for the Logic Gate Simulator  
+Note:  The SAP-2.gcg is cumbersome and may take time to "catch-up".  This is most evident with the auto-increment control bit  
+HDL/02/PC.hdl: main entry point for the functioning program counter using the nand2tetris Hardware simulator  
+
+Development: HDL edited using Visual Studio Code, but any text editor would work, including notepad.  
+Logic Gate Simulator files created using their WYSIWIG tool.  Integrated Circuits exported/imported via the environment as well.  Since their configuration is managed in XML files,  small tweaks can be edited via Visual Studio.  An example is to tweak the clock cycle of an imported DFF to slow down or speed up logic without breaking any connections.
+
 GitHub: ubiquitous code version control management   
 HDL/ .tst, .cmp and .out: These files are test scripts, compare files and results of HardwareSimulator scripting. These can be used to validate the functionality of the HDL components. See the nand2tetris site documentation and/or EoCS book appendix for usage details  
   
