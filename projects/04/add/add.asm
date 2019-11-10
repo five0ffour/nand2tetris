@@ -8,7 +8,7 @@
 //  Date:  November 9, 2019
 
 // Adds the values of 1 to 100
-// Based on Chapter 4, page 65 of "The Elements of Computing Systems"
+// Recreated from Chapter 4, page 65 of "The Elements of Computing Systems"
 
 // Adds 1+...+100
 
