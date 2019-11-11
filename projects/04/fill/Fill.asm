@@ -39,7 +39,7 @@
 // 
 // }  /* infinite loop */
 
-
+(START)
     // set up constants
     @BLACK          // black pixel (for when key is pressed)
     M=-1
@@ -56,11 +56,6 @@
     @KEY
     M=D
 
-    @8192           // Set screensize (in words)
-    D=A
-    @SCREENSIZE
-    M=D
-
     @SCREENPORT         // set screen location index beginning of screen
     D=M
     @loc            
@@ -75,30 +70,44 @@
     M=D
 
 (LOOP)
-    // Get the input key
+    @KEY            // check if key is pressed
+    A=M
+    D=M
+    @WHITE
+    D;JEQ           // 0 = no key pressed, jump to use clear brush
 
-    // if pressed, set brush to black
-    @BLACK
+(BLACK)
+    @BLACK          // key pressed, set brush to black
+    D=M
+    @brush
+    M=D
+    @PAINT
+    0;JMP           // jump directly to screen paint
+
+(WHITE)
+    @WHITE          // no key pressed, set white brush
     D=M
     @brush
     M=D
 
-    // if not pressed, set brush to white
-//    @WHITE
-//    D=M
-//    @brush
-//    M=D
-
 (PAINT)
-    @brush      // load the brush setting (black or white)
+    @brush          // load the brush setting (black or white)
     D=M        
 
-    @loc        // write 16 bits out to the screen
+    @loc            // write 16 bits out to the screen
     A=M
     M=D
 
-    @loc        // increment screen location by one word (16 bits)
+    @loc            // increment screen location by one word (16 bits)
     M=M+1
 
+    @KEY           // Test if we reached the end of the screen buffer
+    D=M
+    @SCREENPORT
+    D=D-M
+    @START
+    D;JEQ           // End of screen, reset
+
+(END)
     @LOOP
-    0;JMP       // Goto LOOP (infinite loop)
+    0;JMP           // Goto LOOP (infinite loop)
