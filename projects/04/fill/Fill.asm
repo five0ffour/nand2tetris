@@ -103,7 +103,7 @@
 
     @KEY           // Test if we reached the end of the screen buffer
     D=M
-    @SCREENPORT
+    @loc
     D=D-M
     @START
     D;JEQ           // End of screen, reset
