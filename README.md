@@ -87,7 +87,7 @@ GitHub: ubiquitous code version control management
 HDL/ .tst, .cmp and .out: These files are test scripts, compare files and results of HardwareSimulator scripting. These can be used to validate the functionality of the HDL components. See the nand2tetris site documentation and/or EoCS book appendix for usage details  
   
 ## Future Enhancements
-Current solution only uses combinatorial gate, future enhancements include adding sequence gates (counters, clocks, etc)
+Future state is define the CPU and the remaining computer components
   
 ## Built With
 Logic Gate Simulator 1.4.0 - Logic Gate Simulator (https://www.kolls.net/gatesim/)   
