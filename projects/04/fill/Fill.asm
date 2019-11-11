@@ -60,9 +60,6 @@
     @loc            
     M=D
 
-    @keypressed     // initialized as key not pressed (keypressed=0)
-    M=0
-
     @WHITE          // initalize brush to white, clears screen
     D=M
     @brush
