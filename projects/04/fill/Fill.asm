@@ -17,11 +17,10 @@
 
 // pseudo-code of higher order language
 //
-// BLACK = 1
-// WHITE = 0
+// BLACK = -1  (1111111111111111b)
+// WHITE = 0   (0000000000000000b)
 // SCREEN = 16384
-// KEY = 24576
-// SCREENSIZE = 8192
+// KEY = 24576 
 // loc = 0
 // while (true) {
 //     keypressed = KEY[0]
@@ -40,7 +39,7 @@
 // }  /* infinite loop */
 
 (START)
-    // set up constants
+                    // set up constants
     @BLACK          // black pixel (for when key is pressed)
     M=-1
     @WHITE          // white pixel (clear screen)
@@ -56,7 +55,7 @@
     @KEY
     M=D
 
-    @SCREENPORT         // set screen location index beginning of screen
+    @SCREENPORT     // set screen location index beginning of screen
     D=M
     @loc            
     M=D
@@ -101,12 +100,12 @@
     @loc            // increment screen location by one word (16 bits)
     M=M+1
 
-    @KEY           // Test if we reached the end of the screen buffer
-    D=M
-    @SCREENPORT
+    @KEY            // Test if we reached the end of the screen buffer
+    D=M             // Note: keyboard buffer is the byte after the screen buffer
+    @loc
     D=D-M
     @START
-    D;JEQ           // End of screen, reset
+    D;JEQ           // End of screen, reset back to start (loc 0)
 
 (END)
     @LOOP
