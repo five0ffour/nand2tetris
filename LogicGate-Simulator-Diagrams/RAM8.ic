@@ -3493,7 +3493,7 @@
       </Wire>
     </Wires>
   </Circuit>
-  <Circuit>
+  <Circuit Name="RAM8">
     <Gates>
       <Gate Type="UserInput" Name="in0" ID="1">
         <Point X="224" Y="1024" Angle="0" />
