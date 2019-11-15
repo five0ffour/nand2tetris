@@ -58,55 +58,55 @@
   <Circuit Name="DMux8Way">
     <Gates>
       <Gate Type="UserInput" Name="S0" ID="1">
-        <Point X="250" Y="398.03999999999996" Angle="0" />
+        <Point X="256" Y="384" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="S1" ID="2">
-        <Point X="249" Y="430.03999999999996" Angle="0" />
+        <Point X="256" Y="416" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="S2" ID="3">
-        <Point X="249" Y="462.03999999999996" Angle="0" />
+        <Point X="256" Y="448" Angle="0" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="4">
-        <Point X="243" Y="213.03999999999996" Angle="0" />
+        <Point X="252.91374720477052" Y="205.7351336385901" Angle="0" />
         <Comment>IN</Comment>
       </Gate>
-      <Gate Type="UserOutput" Name="A0" ID="5">
-        <Point X="920" Y="266.03999999999996" Angle="0" />
+      <Gate Type="UserOutput" Name="A" ID="5">
+        <Point X="928" Y="256" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="B" ID="6">
-        <Point X="922" Y="300.03999999999996" Angle="0" />
+        <Point X="928" Y="288" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="C" ID="7">
-        <Point X="922" Y="338.03999999999996" Angle="0" />
+        <Point X="928" Y="320" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="D" ID="8">
-        <Point X="920" Y="366.03999999999996" Angle="0" />
+        <Point X="928" Y="352" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="E" ID="9">
-        <Point X="922" Y="395.03999999999996" Angle="0" />
+        <Point X="928" Y="384" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="F" ID="10">
-        <Point X="918" Y="430.03999999999996" Angle="0" />
+        <Point X="928" Y="416" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="G" ID="11">
-        <Point X="918" Y="461.03999999999996" Angle="0" />
+        <Point X="928" Y="448" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="H" ID="12">
-        <Point X="917" Y="491.03999999999996" Angle="0" />
+        <Point X="928" Y="480" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="IN" ID="13">
-        <Point X="249" Y="270.03999999999996" Angle="0" />
+        <Point X="256" Y="256" Angle="0" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="14">
         <Point X="917" Y="213.03999999999996" Angle="0" />
         <Comment>OUT</Comment>
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="15">
-        <Point X="243" Y="349.03999999999996" Angle="0" />
+        <Point X="244.56532850601639" Y="337.03914812054091" Angle="0" />
         <Comment>SEL[2]</Comment>
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="16">
-        <Point X="288" Y="32" Angle="0" />
+        <Point X="528.34570283586413" Y="114.49747985282954" Angle="0" />
         <Comment>DMux8Way</Comment>
       </Gate>
       <Gate Type="IC" Name="DMUX" ID="17">
@@ -237,7 +237,7 @@
         <Point X="252.91374720477052" Y="205.7351336385901" Angle="0" />
         <Comment>IN</Comment>
       </Gate>
-      <Gate Type="UserOutput" Name="A0" ID="5">
+      <Gate Type="UserOutput" Name="A" ID="5">
         <Point X="928" Y="256" Angle="0" />
       </Gate>
       <Gate Type="UserOutput" Name="B" ID="6">
