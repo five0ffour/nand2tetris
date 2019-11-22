@@ -27,5 +27,26 @@ CHIP Memory {
     OUT out[16];
 
     PARTS:
-    // Put your code here:
-}
+
+    // Use the address to direct the load signal to the appropriate component 
+    DMux4Way(in=load, sel=address[13..14], a=r1, b=r2, c=scrn, d=kbd);
+
+    // Tie the RAM segments to one addressable output
+    Or(a=r1, b=r2, out=raml);
+
+    // RAM - Address 0000-0x3fff - 0000 0000 0000 0000 b
+    // Load the input value to the appropriate ram register if load enabled and capture the result 
+    RAM16K(in=in, load=raml, address=address[0..13], out=ram);
+
+    // Screen - Address 0x4000-5fff - 0100 0000 0000 0000 b
+    // Load the input value to the screen register if load enabled and capture the result 
+    Screen(in=in, load=scrn, address=address[0..12], out=scn);
+
+    // Keyboard - Address 0x6000 - 24576 - 0110 0000 0000 0000 b
+    // No load of keyboard, just capture the virtual address register
+    Keyboard(out=key);
+
+    // Output the appropriate register based on the selected address
+    Mux4Way16(a=ram, b=ram, c=scn, d=key, sel=address[13..14], out=out);
+
+    }
