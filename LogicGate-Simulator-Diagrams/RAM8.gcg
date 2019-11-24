@@ -3548,13 +3548,13 @@
         <Point X="224" Y="1504" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="address2" ID="18">
-        <Point X="417.38365408921891" Y="152.52091214315814" Angle="90" />
+        <Point X="420.38987565434741" Y="150.16402957450114" Angle="90" />
       </Gate>
       <Gate Type="UserInput" Name="address1" ID="19">
-        <Point X="449.38365408921936" Y="151.74556733699953" Angle="90" />
+        <Point X="450.68233208216242" Y="149.38868476834253" Angle="90" />
       </Gate>
       <Gate Type="UserInput" Name="address0" ID="20">
-        <Point X="482.82978787710454" Y="151.07477835527388" Angle="90" />
+        <Point X="482.82978787710442" Y="149.12676136585932" Angle="90" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="21">
         <Point X="225" Y="960" Angle="0" />
@@ -3613,7 +3613,7 @@
         <Point X="3488" Y="1152" Angle="0" />
       </Gate>
       <Gate Type="IC" Name="Register" ID="39">
-        <Point X="1580.7092599146042" Y="765.50653696002269" Angle="0" />
+        <Point X="1583.7154814797327" Y="765.50653696002269" Angle="0" />
       </Gate>
       <Gate Type="IC" Name="Register" ID="40">
         <Point X="1572.9562460807026" Y="1170.8059894948005" Angle="0" />
@@ -3640,7 +3640,7 @@
         <Point X="2080" Y="768" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="load" ID="48">
-        <Point X="673.27213584138542" Y="146.52323013668095" Angle="90" />
+        <Point X="679.28457897164242" Y="150.17879069828098" Angle="90" />
       </Gate>
       <Gate Type="IC" Name="DMux8Way" ID="49">
         <Point X="441.8373872972752" Y="444.36871975570261" Angle="90" />
@@ -3973,6 +3973,14 @@
         <Point X="3088.6292910409429" Y="1407.2850833042298" Angle="0" />
         <Comment>Register 7</Comment>
       </Gate>
+      <Gate Type="Comment" Name="Comment" ID="156">
+        <Point X="581.11727389480211" Y="490.54727817574314" Angle="0" />
+        <Comment>De-multiplexor - actives the selected register for write</Comment>
+      </Gate>
+      <Gate Type="Comment" Name="Comment" ID="157">
+        <Point X="2299.0281606821045" Y="630.11198817231332" Angle="0" />
+        <Comment>Mux - output the selected registerd based on address input</Comment>
+      </Gate>
     </Gates>
     <Wires>
       <Wire>
@@ -4050,6 +4058,10 @@
       <Wire>
         <From ID="64" Port="0" />
         <To ID="39" Port="2" />
+      </Wire>
+      <Wire>
+        <From ID="65" Port="0" />
+        <To ID="39" Port="3" />
       </Wire>
       <Wire>
         <From ID="66" Port="0" />
@@ -5560,13 +5572,13 @@
         <Point X="224" Y="1504" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="address2" ID="18">
-        <Point X="417.38365408921891" Y="152.52091214315814" Angle="90" />
+        <Point X="420.38987565434741" Y="150.16402957450114" Angle="90" />
       </Gate>
       <Gate Type="UserInput" Name="address1" ID="19">
-        <Point X="449.38365408921936" Y="151.74556733699953" Angle="90" />
+        <Point X="450.68233208216242" Y="149.38868476834253" Angle="90" />
       </Gate>
       <Gate Type="UserInput" Name="address0" ID="20">
-        <Point X="482.82978787710454" Y="151.07477835527388" Angle="90" />
+        <Point X="482.82978787710442" Y="149.12676136585932" Angle="90" />
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="21">
         <Point X="225" Y="960" Angle="0" />
@@ -5625,7 +5637,7 @@
         <Point X="3488" Y="1152" Angle="0" />
       </Gate>
       <Gate Type="IC" Name="Register" ID="39">
-        <Point X="1580.7092599146042" Y="765.50653696002269" Angle="0" />
+        <Point X="1583.7154814797327" Y="765.50653696002269" Angle="0" />
       </Gate>
       <Gate Type="IC" Name="Register" ID="40">
         <Point X="1572.9562460807026" Y="1170.8059894948005" Angle="0" />
@@ -5652,7 +5664,7 @@
         <Point X="2080" Y="768" Angle="0" />
       </Gate>
       <Gate Type="UserInput" Name="load" ID="48">
-        <Point X="679.28457897164242" Y="146.52323013668095" Angle="90" />
+        <Point X="688.30324366702814" Y="150.17879069828098" Angle="90" />
       </Gate>
       <Gate Type="IC" Name="DMux8Way" ID="49">
         <Point X="441.8373872972752" Y="444.36871975570261" Angle="90" />
@@ -6070,6 +6082,10 @@
       <Wire>
         <From ID="64" Port="0" />
         <To ID="39" Port="2" />
+      </Wire>
+      <Wire>
+        <From ID="65" Port="0" />
+        <To ID="39" Port="3" />
       </Wire>
       <Wire>
         <From ID="66" Port="0" />
