@@ -2908,7 +2908,7 @@
   </Circuit>
   <Circuit Name="DFF">
     <Gates>
-      <Gate Type="Clock" Name="Clock" ID="1" Milliseconds="1000">
+      <Gate Type="Clock" Name="Clock" ID="1" Milliseconds="5000">
         <Point X="234" Y="375" Angle="0" />
       </Gate>
       <Gate Type="Nand" Name="Nand" ID="2" NumInputs="2">
@@ -6880,6 +6880,10 @@
         <To ID="39" Port="2" />
       </Wire>
       <Wire>
+        <From ID="65" Port="0" />
+        <To ID="39" Port="3" />
+      </Wire>
+      <Wire>
         <From ID="66" Port="0" />
         <To ID="39" Port="4" />
       </Wire>
@@ -8402,7 +8406,7 @@
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="22">
         <Point X="384" Y="96" Angle="0" />
-        <Comment>address[3] - mux betwen registers 0x0 to 0x3F</Comment>
+        <Comment>address[6] - mux betwen registers 0x0 to 0x3F</Comment>
       </Gate>
       <Gate Type="UserOutput" Name="out0" ID="23">
         <Point X="3488" Y="672" Angle="0" />
@@ -8483,7 +8487,7 @@
         <Point X="532.59375580478309" Y="427.98225813123275" Angle="180" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="49">
-        <Point X="872.61397005453068" Y="429.69903248932957" Angle="180" />
+        <Point X="866.61397005453068" Y="427.69903248932957" Angle="180" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="50">
         <Point X="546.27215078076017" Y="751.60512238941078" Angle="0" />
@@ -8598,52 +8602,52 @@
         <Point X="3880.254804328144" Y="3046.5720636799015" Angle="0" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="87">
-        <Point X="1799.8297851030065" Y="2829.7657749823607" Angle="270" />
+        <Point X="2120.8297851030065" Y="2818.2806259923245" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="88">
-        <Point X="1835.8324554536321" Y="2858.8639685933963" Angle="270" />
+        <Point X="2156.8324554536321" Y="2847.37881960336" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="89">
-        <Point X="1868.8107238246484" Y="2893.9343627883363" Angle="270" />
+        <Point X="2189.8107238246484" Y="2882.4492137983" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="90">
-        <Point X="1896.8080534740229" Y="2932.2957858792379" Angle="270" />
+        <Point X="2217.8080534740229" Y="2920.8106368892018" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="91">
-        <Point X="1669.4918437067297" Y="2701.7718296620742" Angle="270" />
+        <Point X="1990.4918437067297" Y="2690.2866806720381" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="92">
-        <Point X="1706.0277678900613" Y="2736.6262133334826" Angle="270" />
+        <Point X="2027.0277678900613" Y="2725.1410643434465" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="93">
-        <Point X="1735.2323699252308" Y="2768.6851990400592" Angle="270" />
+        <Point X="2056.2323699252311" Y="2757.200050050023" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="94">
-        <Point X="1771.197417374281" Y="2800.7948011394578" Angle="270" />
+        <Point X="2092.197417374281" Y="2789.3096521494217" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="95">
-        <Point X="1925.976267883877" Y="2960.1788996799646" Angle="270" />
+        <Point X="2246.976267883877" Y="2948.6937506899285" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="96">
-        <Point X="1956.2461423081998" Y="2992.1820829269914" Angle="270" />
+        <Point X="2277.2461423081995" Y="2980.6969339369552" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="97">
-        <Point X="1993.2270810298426" Y="3019.97177136659" Angle="270" />
+        <Point X="2314.2270810298423" Y="3008.4866223765539" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="98">
-        <Point X="2026.2559657936802" Y="3057.837563526361" Angle="270" />
+        <Point X="2347.25596579368" Y="3046.3524145363249" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="99">
-        <Point X="1542.8899457447249" Y="2571.5663566024841" Angle="270" />
+        <Point X="1863.8899457447249" Y="2560.081207612448" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="100">
-        <Point X="1579.4258699280565" Y="2611.1856684720024" Angle="270" />
+        <Point X="1900.4258699280565" Y="2599.7005194819662" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="101">
-        <Point X="1611.1462495204576" Y="2633.71479778236" Angle="270" />
+        <Point X="1932.1462495204576" Y="2622.229648792324" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="102">
-        <Point X="1639.5954508708171" Y="2659.160621011144" Angle="270" />
+        <Point X="1960.5954508708171" Y="2647.6754720211079" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="103">
         <Point X="681.38896962653189" Y="2573.3524145363249" Angle="0" />
@@ -8791,11 +8795,11 @@
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="148">
         <Point X="581.11727389480211" Y="490.54727817574314" Angle="0" />
-        <Comment>De-multiplexor - actives the selected register for write</Comment>
+        <Comment>De-multiplexor - actives the selected component</Comment>
       </Gate>
       <Gate Type="Comment" Name="Comment" ID="149">
-        <Point X="2299.0281606821045" Y="630.11198817231332" Angle="0" />
-        <Comment>Mux - output the selected registerd based on address input</Comment>
+        <Point X="2276.9230262399119" Y="629.08384238430438" Angle="0" />
+        <Comment>Mux - output the selected component based on address inputs</Comment>
       </Gate>
       <Gate Type="IC" Name="RAM8" ID="150">
         <Point X="1655.1804253887269" Y="728.04977252102822" Angle="0" />
@@ -8840,7 +8844,7 @@
         <Point X="416" Y="160" Angle="90" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="164">
-        <Point X="544.94661405634577" Y="407.46027501525197" Angle="0" />
+        <Point X="536.94661405634577" Y="407.46027501525197" Angle="0" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="165">
         <Point X="570.77580125626173" Y="378.12319314285435" Angle="0" />
@@ -8876,7 +8880,7 @@
         <Point X="2359.0159445276213" Y="2172.4260984208504" Angle="0" />
       </Gate>
       <Gate Type="IC" Name="RAM8" ID="176">
-        <Point X="2652.2376384496229" Y="2155.3805194114184" Angle="0" />
+        <Point X="2725.5496504301004" Y="2129.4640696423171" Angle="0" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="177">
         <Point X="3229.4101163124269" Y="344.21370707350417" Angle="0" />
@@ -10801,7 +10805,7 @@
         <Point X="532.59375580478309" Y="427.98225813123275" Angle="180" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="49">
-        <Point X="872.61397005453068" Y="429.69903248932957" Angle="180" />
+        <Point X="866.61397005453068" Y="427.69903248932957" Angle="180" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="50">
         <Point X="546.27215078076017" Y="751.60512238941078" Angle="0" />
@@ -10916,52 +10920,52 @@
         <Point X="3880.254804328144" Y="3046.5720636799015" Angle="0" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="87">
-        <Point X="1799.8297851030065" Y="2829.7657749823607" Angle="270" />
+        <Point X="2120.8297851030065" Y="2818.2806259923245" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="88">
-        <Point X="1835.8324554536321" Y="2858.8639685933963" Angle="270" />
+        <Point X="2156.8324554536321" Y="2847.37881960336" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="89">
-        <Point X="1868.8107238246484" Y="2893.9343627883363" Angle="270" />
+        <Point X="2189.8107238246484" Y="2882.4492137983" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="90">
-        <Point X="1896.8080534740229" Y="2932.2957858792379" Angle="270" />
+        <Point X="2217.8080534740229" Y="2920.8106368892018" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="91">
-        <Point X="1669.4918437067297" Y="2701.7718296620742" Angle="270" />
+        <Point X="1990.4918437067297" Y="2690.2866806720381" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="92">
-        <Point X="1706.0277678900613" Y="2736.6262133334826" Angle="270" />
+        <Point X="2027.0277678900613" Y="2725.1410643434465" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="93">
-        <Point X="1735.2323699252308" Y="2768.6851990400592" Angle="270" />
+        <Point X="2056.2323699252311" Y="2757.200050050023" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="94">
-        <Point X="1771.197417374281" Y="2800.7948011394578" Angle="270" />
+        <Point X="2092.197417374281" Y="2789.3096521494217" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="95">
-        <Point X="1925.976267883877" Y="2960.1788996799646" Angle="270" />
+        <Point X="2246.976267883877" Y="2948.6937506899285" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="96">
-        <Point X="1956.2461423081998" Y="2992.1820829269914" Angle="270" />
+        <Point X="2277.2461423081995" Y="2980.6969339369552" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="97">
-        <Point X="1993.2270810298426" Y="3019.97177136659" Angle="270" />
+        <Point X="2314.2270810298423" Y="3008.4866223765539" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="98">
-        <Point X="2026.2559657936802" Y="3057.837563526361" Angle="270" />
+        <Point X="2347.25596579368" Y="3046.3524145363249" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="99">
-        <Point X="1542.8899457447249" Y="2571.5663566024841" Angle="270" />
+        <Point X="1863.8899457447249" Y="2560.081207612448" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="100">
-        <Point X="1579.4258699280565" Y="2611.1856684720024" Angle="270" />
+        <Point X="1900.4258699280565" Y="2599.7005194819662" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="101">
-        <Point X="1611.1462495204576" Y="2633.71479778236" Angle="270" />
+        <Point X="1932.1462495204576" Y="2622.229648792324" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="102">
-        <Point X="1639.5954508708171" Y="2659.160621011144" Angle="270" />
+        <Point X="1960.5954508708171" Y="2647.6754720211079" Angle="270" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="103">
         <Point X="681.38896962653189" Y="2573.3524145363249" Angle="0" />
@@ -11158,7 +11162,7 @@
         <Point X="416" Y="160" Angle="90" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="164">
-        <Point X="544.94661405634577" Y="407.46027501525197" Angle="0" />
+        <Point X="536.94661405634577" Y="407.46027501525197" Angle="0" />
       </Gate>
       <Gate Type="Buffer" Name="Buffer" ID="165">
         <Point X="570.77580125626173" Y="378.12319314285435" Angle="0" />

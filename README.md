@@ -16,6 +16,9 @@ Logic Gate Simlulator is an open source project providing student engineers an o
 
 My hope is that these files can be used to provide just another way of understanding the fascintating world of digital computers. As with the original authors intent, nothing beats actually implementing them to really undertand. I too encourage any student to try their hand at designing these gates using their HDL and use my source or PDFs only as a double-check of their final work.  
 
+Implementation Note:  
+Logic Gate Simulator is a resource intensive application and the larger circuits are quite complex.  Unfortunlatey even on robust laptops, it seems quite daunting to simulate in a timely manner.  The application is quite responsive for all combinatorial chips.  The sequential chips become daunting for anything more complex then the register.  The RAM8 and RAM64 are mostly for display only, and likely won't be very interactive.      
+
 ## The ALU (Arithmetic Logic Unit) (design from nand2tetris.org) 
 source files;  ALU.hdl / SAP-1.gcg:  
 | --- |      
@@ -87,7 +90,8 @@ GitHub: ubiquitous code version control management
 HDL/ .tst, .cmp and .out: These files are test scripts, compare files and results of HardwareSimulator scripting. These can be used to validate the functionality of the HDL components. See the nand2tetris site documentation and/or EoCS book appendix for usage details  
   
 ## Future Enhancements
-Future state is define the CPU and the remaining computer components
+Future state is define the CPU and the remaining computer components.  
+Look for a better application to demo the complicated sequential components.  
   
 ## Built With
 Logic Gate Simulator 1.4.0 - Logic Gate Simulator (https://www.kolls.net/gatesim/)   
