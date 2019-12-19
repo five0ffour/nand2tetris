@@ -123,7 +123,11 @@ CHIP CPU {
 
     PARTS:
 
-    And(a=instruction[3], b=instruction[15], out=writeM);   
+    // D (data) Register decoding
+    And(a=instruction[4], b=instruction[15], out=loadD);
+    DRegister(in=outALU, 
+              load=loadD, 
+              out=outD);                      
 
     // A (address) Register decoding
     Mux16(a[0..14]=instruction[0..14], b=outALU, sel=instruction[15], out[0..14]=muxA);
@@ -135,11 +139,7 @@ CHIP CPU {
             out[0..14]=addressA, 
             out[0..14]=addressM);
 
-    // D (data) Register
-    And(a=instruction[4], b=instruction[15], out=loadD);
-    DRegister(in=outALU, load=loadD, out=outD);                      
-
-    // A register or Memory data    
+    // A register or external memory data    
     Mux16(a=valueA, b=inM, sel=instruction[12],  out=muxAM); 
    
     ALU(
@@ -158,17 +158,31 @@ CHIP CPU {
     );
 
     // Program Counter Decoding
-    Not(in=ng,out=pos);
-	Not(in=zr,out=nzr);
-	And(a=instruction[15],b=instruction[0],out=jgt);
-	And(a=pos,b=nzr,out=posnzr);
-	And(a=jgt,b=posnzr,out=ld1);
-	And(a=instruction[15],b=instruction[1],out=jeq);
-	And(a=jeq,b=zr,out=ld2);
-	And(a=instruction[15],b=instruction[2],out=jlt);
-	And(a=jlt,b=ng,out=ld3);
-	Or(a=ld1,b=ld2,out=ldt);
-	Or(a=ld3,b=ldt,out=ld);
-	PC(in[0..14]=addressA,load=ld,inc=true,reset=reset,out[0..14]=pc);
+    Not(in=ng, out=pos);
+    Not(in=zr, out=nzr);
 
+    // jump condition 1:  result > 0
+    And(a=instruction[15], b=instruction[0], out=jgt);
+    And(a=pos, b=nzr, out=posnzr);
+    And(a=jgt, b=posnzr, out=cond1);
+
+    // jump condition 2:  result == 0
+    And(a=instruction[15], b=instruction[1], out=jeq);
+    And(a=jeq, b=zr, out=cond2);
+
+    // jump condition 3:  result < 0
+    And(a=instruction[15], b=instruction[2], out=jlt);
+    And(a=jlt, b=ng, out=cond3);
+
+    // jump if any conditions were met
+    Or(a=cond1, b=cond2, out=cond1or2);
+    Or(a=cond3, b=cond1or2, out=jump);
+
+    PC(in[0..14]=addressA, 
+       load=jump, 
+       inc=true, 
+       reset=reset, 
+       out[0..14]=pc);
+
+    And(a=instruction[3], b=instruction[15], out=writeM);   
 }
