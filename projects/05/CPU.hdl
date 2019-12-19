@@ -135,17 +135,6 @@ CHIP CPU {
             out[0..14]=addressA, 
             out[0..14]=addressM);
 
-    // Program Counter Decoding
-    And(a=instruction[2], b=ng, out=pcCond1);
-    And(a=instruction[1], b=zr, out=pcCond2);
-    Or(a=zr, b=ng, out=notGreater);
-    Not(in=notGreater, out=greater);
-    And(a=instruction[0], b=greater, out=pcCond3);
-    Or(a=pcCond1, b=pcCond2, out=pcCond1or2);
-    Or(a=pcCond1or2, b=pcCond3, out=jump);
-    And(a=jump, b=instruction[15], out=loadPC);
-    PC(in[0..14]=addressA,load=loadPC,inc=true,reset=reset, out[0..14]=pc);
-
     // D (data) Register
     And(a=instruction[4], b=instruction[15], out=loadD);
     DRegister(in=outALU, load=loadD, out=outD);                      
@@ -167,4 +156,19 @@ CHIP CPU {
         zr=zr,                     // 1 if (out == 0), 0 otherwise
         ng=ng                      // 1 if (out < 0),  0 otherwise
     );
+
+    // Program Counter Decoding
+    Not(in=ng,out=pos);
+	Not(in=zr,out=nzr);
+	And(a=instruction[15],b=instruction[0],out=jgt);
+	And(a=pos,b=nzr,out=posnzr);
+	And(a=jgt,b=posnzr,out=ld1);
+	And(a=instruction[15],b=instruction[1],out=jeq);
+	And(a=jeq,b=zr,out=ld2);
+	And(a=instruction[15],b=instruction[2],out=jlt);
+	And(a=jlt,b=ng,out=ld3);
+	Or(a=ld1,b=ld2,out=ldt);
+	Or(a=ld3,b=ldt,out=ld);
+	PC(in[0..14]=addressA,load=ld,inc=true,reset=reset,out[0..14]=pc);
+
 }
