@@ -25,6 +25,89 @@
  * than to the address resulting from executing the current instruction. 
  */
 
+/* Hacks's Instruction Decoding */
+/*
+ * Two instructions:
+ *    A - Address instruction (treat 15 bits as an address)
+ *    C - Compute instruction (decode the bits as follows...
+ *
+ * 16 bit instruction word format:  [ i xx a cccccc ddd jjj ] 
+ *    i      =  [0 | 1] :  A or C instruction respectively
+ *    xx     =  ignored, set to 0x3
+ *    a      =  [0 | 1] : reference A register or dereference to Memory[A} respectively
+ *    cccccc =  control bits  (see Table 1 below)
+ *    ddd    =  destination field of C instruction (see Table 2 below)
+ *    jjj    =  jump coding instructions (see Table 3 below)
+ *
+ */
+
+/****************************************************************************************
+ * Table 1 - Computational / Memory Reference Specification  (cccccc) - instruction[6..11] 
+ *                            
+ *  (e.g., c1 = instruction[6],  c2 = instruction[7], ...)
+ *
+ *                     |--- control bits ---|
+ *  (when a=0)     ||  c1  c2  c3  c4  c5  c6  ||   (when a=1)  
+ * comp mnemonic   ||  zx  nx  zy  ny  f   no  ||   comp mnemonic
+ *  ---------------||--------------------------||------------------
+ *               0 ||  1   0   1   0   1   0   ||                  
+ *               1 ||  1   1   1   1   1   1   ||                  
+ *              -1 ||  1   1   1   0   1   0   ||                  
+ *               D ||  0   0   1   1   0   0   ||                  
+ *               A ||  1   1   0   0   0   0   ||  M                
+ *              !D ||  0   0   1   1   0   1   ||                  
+ *              !A ||  1   1   0   0   0   1   ||  !M                
+ *              -D ||  0   0   1   1   1   1   ||                  
+ *              -A ||  1   1   0   0   1   0   ||  -M                
+ *             D+1 ||  0   1   1   1   1   1   ||              
+ *             A+1 ||  1   1   0   1   1   1   ||  M+1            
+ *             D-1 ||  0   0   1   1   1   0   ||              
+ *             A-1 ||  1   1   0   0   1   0   ||  M-1             
+ *             D+A ||  0   0   0   0   1   0   ||  D+M            
+ *             D-A ||  0   1   0   0   1   1   ||  D-M            
+ *             A-D ||  0   0   0   1   1   1   ||  M-D            
+ *             D&A ||  0   0   0   0   0   0   ||  D&M            
+ *             D|A ||  0   1   0   1   0   1   ||  D|M            
+ * 
+ **************************************************************************************/
+
+/**************************************************************************************
+ * Table 2 - Destination field of C Instruction - instructions[3..5]
+ * 
+ *  (e.g., d1 = instruction[3],  d2 = instruction[4], ...)
+ *
+ *   d1   d2   d3  ||  Mnemonic  | Destination (where to store the computed value)
+ *   --------------||------------|--------------------------------------------------
+ *    0    0    0  ||    null    | The value is not stored anywhere   
+ *    0    0    1  ||    M       | Memory[A] (memory register addressed by A)          
+ *    0    1    0  ||    D       | D register           
+ *    0    1    1  ||    MD      | Memory[A] and D register          
+ *    1    0    0  ||    A       | A register           
+ *    1    0    1  ||    AM      | A regsiter and Memory[A]          
+ *    1    1    0  ||    AD      | A register and D register           
+ *    1    1    1  ||    AMD     | A register, Memory[A], and D register 
+ * 
+ ***************************************************************************************/
+
+/***************************************************************************************
+ * Table 3 - Jump field of C instruction - instruction[0..2] 
+ * 
+ *  (e.g., j1 = instruction[0],  j2 = instruction[1], ...)
+ *
+ *       j1     |      j2     |    j3       ||  Mnemonic  |  Effect
+ *   (out < 0)  |  (out = 0)  |  (out > 0)  ||            | 
+ *   -------------------------------------------------------------------
+ *       0      |      0      |    0        ||    null    |  No jump
+ *       0      |      0      |    1        ||    JGT     |  if out >  0 jump
+ *       0      |      1      |    0        ||    JEQ     |  if out =  0 jump
+ *       0      |      1      |    1        ||    JGE     |  if out >= 0 jump
+ *       1      |      0      |    0        ||    JLT     |  if out <  0 jump
+ *       1      |      0      |    1        ||    JNE     |  if out <> 0 jump
+ *       1      |      1      |    0        ||    JLE     |  if out <= 0 jump
+ *       1      |      1      |    1        ||    JMP     |  jump
+ * 
+ *****************************************************************************************/
+
 CHIP CPU {
 
     IN  inM[16],         // M value input  (M = contents of RAM[A])
@@ -39,5 +122,49 @@ CHIP CPU {
         pc[15];          // address of next instruction
 
     PARTS:
-    // Put your code here:
+
+    And(a=instruction[3], b=instruction[15], out=writeM);   
+
+    // A (address) Register decoding
+    Mux16(a[0..14]=instruction[0..14], b=outALU, sel=instruction[15], out[0..14]=muxA);
+    Not(in=instruction[15], out=notB15);
+    Or(a=notB15, b=instruction[5], out=loadA);
+    ARegister(in[0..14]=muxA, 
+            load=loadA, 
+            out=valueA,
+            out[0..14]=addressA, 
+            out[0..14]=addressM);
+
+    // Program Counter Decoding
+    And(a=instruction[2], b=ng, out=pcCond1);
+    And(a=instruction[1], b=zr, out=pcCond2);
+    Or(a=zr, b=ng, out=notGreater);
+    Not(in=notGreater, out=greater);
+    And(a=instruction[0], b=greater, out=pcCond3);
+    Or(a=pcCond1, b=pcCond2, out=pcCond1or2);
+    Or(a=pcCond1or2, b=pcCond3, out=jump);
+    And(a=jump, b=instruction[15], out=loadPC);
+    PC(in[0..14]=addressA,load=loadPC,inc=true,reset=reset, out[0..14]=pc);
+
+    // D (data) Register
+    And(a=instruction[4], b=instruction[15], out=loadD);
+    DRegister(in=outALU, load=loadD, out=outD);                      
+
+    // A register or Memory data    
+    Mux16(a=valueA, b=inM, sel=instruction[12],  out=muxAM); 
+   
+    ALU(
+        x=outD,                    // D register - 16-bit input
+        y=muxAM,                   // A/M register - 16-bit input        
+        zx=instruction[11],        // c1 - zero the x input?
+        nx=instruction[10],        // c2 - negate the x input?
+        zy=instruction[9],         // c3 - zero the y input?
+        ny=instruction[8],         // c4 - negate the y input?
+         f=instruction[7],         // c5 - compute out = x + y (if 1) or x & y (if 0)
+        no=instruction[6],         // c6 - negate the out output?
+        out=outM,                  // 16-bit output
+        out=outALU,
+        zr=zr,                     // 1 if (out == 0), 0 otherwise
+        ng=ng                      // 1 if (out < 0),  0 otherwise
+    );
 }
